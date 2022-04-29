@@ -142,3 +142,131 @@ def another_stand_alone_function():
 
 another_stand_alone_function()  
 
+##################################################################
+
+def bread(func):
+    def wrapper(food):
+        print("</''''''\>")
+        func(food)
+        print("<\______/>")
+    return wrapper
+
+def ingredients(func):
+    def wrapper(food):
+        print("#tomatoes#")
+        func(food)
+        print('~salad~')
+    return wrapper
+
+@bread
+@ingredients
+def sandwich(food='--ham--'):
+    print(food)
+
+sandwich("--tofu--")
+
+#######################################################################
+
+def a_decorator_passing_arguments(function_to_decorate):
+    def a_wrapper_accepting_arguments(arg1, arg2):
+        print('I got args! Look:', arg1, arg2)
+        function_to_decorate(arg1, arg2)
+    return a_wrapper_accepting_arguments
+
+# Since when you are calling the function returned by the decorator, you are
+# calling the wrapper, passing arguments to the wrapper will let it pass them to 
+# the decorated function
+
+@a_decorator_passing_arguments
+def print_full_name(first_name, last_name):
+    print('My name is', first_name, last_name)
+    
+print_full_name('Peter', 'Venkman')
+
+##############################################################
+
+def method_friendly_decorator(method_to_decorate):
+    def wrapper(self, lie):
+        lie = lie - 3 # very friendly, decrease age even more :-)
+        return method_to_decorate(self, lie)
+    return wrapper
+
+
+class Lucy(object):
+    def __init__(self):
+        self.age = 32
+    
+    @method_friendly_decorator
+    def sayYourAge(self, lie):
+        print('I am {0}, what did you think?'.format(self.age + lie))
+        
+l = Lucy()
+l.sayYourAge(-3)
+
+
+
+
+#############################################################
+
+def a_decorator_passing_arbitrary_arguments(function_to_decorate):
+    # The wrapper accepts any arguments
+    def a_wrapper_accepting_arbitrary_arguments(*args, **kwargs):
+        print('Do I have args?:')
+        print(args)
+        print(kwargs)
+        # Then you unpack the arguments, here *args, **kwargs
+        # If you are not familiar with unpacking, check:
+        # http://www.saltycrane.com/blog/2008/01/how-to-use-args-and-kwargs-in-python/
+        function_to_decorate(*args, **kwargs)
+    return a_wrapper_accepting_arbitrary_arguments
+
+@a_decorator_passing_arbitrary_arguments
+def function_with_no_argument():
+    print('Python is cool, no argument here.')
+
+function_with_no_argument()
+#outputs
+#Do I have args?:
+#()
+#{}
+#Python is cool, no argument here.
+
+@a_decorator_passing_arbitrary_arguments
+def function_with_arguments(a, b, c):
+    print(a, b, c)
+    
+function_with_arguments(1,2,3)
+#outputs
+#Do I have args?:
+#(1, 2, 3)
+#{}
+#1 2 3 
+ 
+@a_decorator_passing_arbitrary_arguments
+def function_with_named_arguments(a, b, c, platypus='Why not ?'):
+    print('Do {0}, {1} and {2} like platypus? {3}'.format(a, b, c, platypus))
+
+function_with_named_arguments('Bill', 'Linus', 'Steve', platypus='Indeed!')
+#outputs
+#Do I have args ? :
+#('Bill', 'Linus', 'Steve')
+#{'platypus': 'Indeed!'}
+#Do Bill, Linus and Steve like platypus? Indeed!
+
+
+class Mary(object):
+    def __init__(self):
+        self.age = 31
+    
+    @a_decorator_passing_arbitrary_arguments
+    def sayYourAge(self, lie=-3): # You can now add a default value
+        print('I am {0}, what did you think?'.format(self.age + lie))
+
+m = Mary()
+m.sayYourAge()
+#outputs
+# Do I have args?:
+#(<__main__.Mary object at 0xb7d303ac>,)
+#{}
+#I am 28, what did you think?
+
