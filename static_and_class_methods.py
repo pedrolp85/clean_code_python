@@ -1,3 +1,29 @@
+# Existen varios tipos de métodos de clase
+
+# Métodos de instancia
+# 
+# Son los métodos básicos o 'normales'
+# Son los métodos que definen comportimientos de objetos de la clase
+# sólo se pueden referenciar a través de instancias de la clase, y su primer argumento es self
+# Self apunta a una instancia de la clase a la que pertenecen
+
+# A través de self, una instancia puede acceder a atributos y propiedades del objeto
+# también pueden acceder a la misma clase con el atributo self.__class__
+
+
+# Métodos de clase
+#
+# Se definen con el decorador @staticmethod
+# Son métodos que no defien el compartimiento de una instancia, si no de la clase
+# en lugar de self, reciben como primer parámetro cls, que es el acrónimo de Python para Class
+# al no tener acceso a self, no pueden moficar el el estado del objeto o de la clase
+
+# Metodos estáticos
+#
+# No recibe ni cls ni self
+# Se declara con el decorador @staticmethod
+
+
 class Person:
     life_expectancy=70
 
