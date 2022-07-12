@@ -58,9 +58,43 @@ class SpanishPerson(Person):
 p = Person()
 print(p.get_languaje())
 print(p.average_life_ex())
-print(Person.get_languaje())
+#print(Person.get_languaje())
 Person.breathe()
 p.breathe()
 s = SpanishPerson()
 print(s.get_languaje())
 print(s.average_life_ex())
+
+
+# otro ejemplo
+
+from dataclasses import dataclass
+import random
+
+@dataclass
+class Animal:
+    especie: str = "mammal"
+
+    @staticmethod
+    def get_random_animal():
+       
+        all_subcl = [ cls.__name__ for cls in Animal.__subclasses__() ]
+        return globals()[random.choice(all_subcl)]()
+
+
+@dataclass
+class Dog(Animal):
+    especie : str = "canino"
+    legs: int = 4
+    description: str = "Es un Perro"
+
+@dataclass
+class Cat(Animal):
+    especie : str ="Felino"
+    legs: int = 4
+    description: str = "Es un Gato"
+
+
+animal = Animal.get_random_animal()
+
+print(animal)
