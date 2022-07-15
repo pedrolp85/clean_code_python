@@ -78,13 +78,14 @@ class Animal:
     @staticmethod
     def get_random_animal():
        
-        all_subcl = [ cls.__name__ for cls in Animal.__subclasses__() ]
-        return globals()[random.choice(all_subcl)]()
+        all_subcls = [ subclass() for subclass in Animal.__subclasses__() ]
+        print(all_subcls)
+        return random.choice(all_subcls)
 
 
 @dataclass
 class Dog(Animal):
-    especie : str = "canino"
+    especie : str = "Canino"
     legs: int = 4
     description: str = "Es un Perro"
 
