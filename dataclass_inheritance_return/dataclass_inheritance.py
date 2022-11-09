@@ -2,36 +2,32 @@ from dataclasses import dataclass
 import re
 
 @dataclass
-class Account:
-    ui_name: str = "Account"
-    api_name: str = "account"
-    card: str = "Cost by accounts"
-    name: str = None
-    filter_value: str = None
+class Animal:
+    api_name: str = "animal"
     
     def get_key(self, *args):
         return self.api_name
 
 @dataclass
-class AzureAccount(Account):
-    api_name_self_path: str = "subscription_guid"
+class Perro(Animal):
+    api_name_raza: str = "doberman"
     # We use this key when hitting /azure or ocp_on_azure endpoints
     # we use parent api_name when hittin ocp_on_cloud endpoints
     
     def get_key(self,path):
-        if m:=re.search('openshift', path):
-            return self.api_name_self_path
+        if m:=re.search('raza', path):
+            return self.api_name_raza
         else:
             return super().get_key()
 
-OCP_ON_GCP_COST_PATH = "/reports/openshift/infrastructures/azure/costs/"
-GCP_COST_PATH = "/reports/azure/costs/"
+RAZA_PATH = "/reports/general/"
+GENERAL_PATH = "/reports/raza/"
 
-normal_account = Account()
-print(normal_account.get_key(OCP_ON_GCP_COST_PATH))
-print(normal_account.get_key(GCP_COST_PATH))
+normal_account = Animal()
+print(normal_account.get_key(RAZA_PATH))
+print(normal_account.get_key(GENERAL_PATH))
 
 
-azure_account = AzureAccount()
-print(azure_account.get_key(OCP_ON_GCP_COST_PATH))
-print(azure_account.get_key(GCP_COST_PATH))
+azure_account = Perro()
+print(azure_account.get_key(RAZA_PATH))
+print(azure_account.get_key(GENERAL_PATH))
