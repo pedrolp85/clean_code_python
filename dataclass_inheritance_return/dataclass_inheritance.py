@@ -1,3 +1,6 @@
+## Problema: En una instancia del padre animal, usamos siempre la clave animal
+## en una instancia de la clase hija, podemos usar la clave del padre o la específica, dependiendo del path
+
 from dataclasses import dataclass
 import re
 
