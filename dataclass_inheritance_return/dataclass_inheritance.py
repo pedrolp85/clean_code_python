@@ -28,11 +28,11 @@ class Perro(Animal):
 GENERAL_PATH = "/reports/general/"
 SPECIFIC_PATH = "/reports/raza/"
 
-normal_account = Animal()
-print(normal_account.get_key(GENERAL_PATH))
-print(normal_account.get_key(SPECIFIC_PATH))
+animal_generico = Animal()
+print(animal_generico.get_key(GENERAL_PATH))
+print(animal_generico.get_key(SPECIFIC_PATH))
 
 
-azure_account = Perro()
-print(azure_account.get_key(GENERAL_PATH))
-print(azure_account.get_key(SPECIFIC_PATH))
+animal_perro = Perro()
+print(animal_perro.get_key(GENERAL_PATH))
+print(animal_perro.get_key(SPECIFIC_PATH))
