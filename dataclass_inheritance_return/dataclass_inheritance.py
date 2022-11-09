@@ -20,14 +20,14 @@ class Perro(Animal):
         else:
             return super().get_key()
 
-RAZA_PATH = "/reports/general/"
-GENERAL_PATH = "/reports/raza/"
+GENERAL_PATH = "/reports/general/"
+SPECIFIC_PATH = "/reports/raza/"
 
 normal_account = Animal()
-print(normal_account.get_key(RAZA_PATH))
 print(normal_account.get_key(GENERAL_PATH))
+print(normal_account.get_key(SPECIFIC_PATH))
 
 
 azure_account = Perro()
-print(azure_account.get_key(RAZA_PATH))
 print(azure_account.get_key(GENERAL_PATH))
+print(azure_account.get_key(SPECIFIC_PATH))
