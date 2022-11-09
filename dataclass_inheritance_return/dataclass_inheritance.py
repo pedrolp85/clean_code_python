@@ -1,5 +1,7 @@
 ## Problema: En una instancia del padre animal, usamos siempre la clave animal
 ## en una instancia de la clase hija, podemos usar la clave del padre o la específica, dependiendo del path
+## queremos que los clientes llamen a la interfaz de la misma forma ya sea una instancia padre o hija, por eso usamos *args en el padre
+
 
 from dataclasses import dataclass
 import re
