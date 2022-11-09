@@ -13,7 +13,7 @@
 
 # Métodos de clase
 #
-# Se definen con el decorador @staticmethod
+# Se definen con el decorador @classmethod
 # Son métodos que no defien el compartimiento de una instancia, si no de la clase
 # en lugar de self, reciben como primer parámetro cls, que es el acrónimo de Python para Class
 # al no tener acceso a self, no pueden moficar el el estado del objeto o de la clase
