@@ -1,0 +1,163 @@
+---
+generators:
+  - EC2Generator:
+      start_date: last_month
+      processor_arch: 64-bit
+      resource_id: 99995555
+      product_sku: VEAJHRNKTJZA
+      region: us-west-1a
+      tags:
+        resourceTags/user:environment: smoke_test_run_sample_long_tag
+        resourceTags/user:app: slatt
+        resourceTags/user:version: zeta
+      instance_type:
+        inst_type: m5.large
+        vcpu: 2
+        memory: '8 GiB'
+        storage: 'EBS Only'
+        family: 'General Purpose'
+        cost: 1.000
+        rate: 0.500
+        saving: 0.10
+  - EC2Generator:
+      start_date: last_month
+      processor_arch: 64-bit
+      resource_id: 99995556
+      product_sku: VEAJHRNKTJZB
+      region: us-west-1a
+      tags:
+        resourceTags/user:environment: smoke_test_run_sample_long_tag
+        resourceTags/user:version: zeta
+      instance_type:
+        inst_type: m5.large
+        vcpu: 2
+        memory: '8 GiB'
+        storage: 'EBS Only'
+        family: 'General Purpose'
+        cost: 1.000
+        rate: 0.500
+        saving: 0.10
+  - S3Generator:
+      start_date: last_month
+      product_sku: VEAJHRNAAAAA
+      amount: 10
+      rate: 2
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+  - RDSGenerator:
+      start_date: last_month
+      processor_arch: 64-bit
+      product_sku: VEAJHRNKTJZC
+      region: us-west-1a
+      resource_id: 99995555
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+      instance_type:
+        inst_type: db.t3.medium
+        vcpu: 2
+        memory: '4 GiB'
+        storage: 'EBS Only'
+        family: 'Memory Optimized'
+        cost: 1.000
+        rate: 0.500
+  - VPCGenerator:
+      start_date: last_month
+      cost: 2
+      rate: 2
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+        resourceTags/user:test: nice
+        resourceTags/user:git: commit
+        resourceTags/user:stack: overflow
+        resourceTags/user:volume: stor_nod
+        resourceTags/user:storageclass: dua
+  - EBSGenerator:
+      start_date: last_month
+      product_sku: VEAJHRNBBBBA
+      amount: 10
+      cost: 2
+      rate: 2
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+        resourceTags/user:test: nice
+        resourceTags/user:git: commit
+        resourceTags/user:stack: overflow
+        resourceTags/user:volume: stor_nod
+        resourceTags/user:storageclass: dua
+  - Route53Generator:
+      start_date: last_month
+      product_sku: AERJHRNRRRRR
+      product_code: AmazonRoute53
+      product_name: Amazon Route53
+      product_family: DNS Zone
+      cost: 2
+      rate: 2
+      region: us-west-1a
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+        resourceTags/user:stack: overflow
+        resourceTags/user:app: nod
+        resourceTags/user:test: nice
+        resourceTags/user:git: commit
+        resourceTags/user:preference: tests
+  - DataTransferGenerator:
+      start_date: last_month
+      product_sku: AERJHRNCCCCC
+      product_code: AmazonDynamoDB
+      product_name: Amazon DynamoDB
+      amount: 10
+      rate: 2
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+        resourceTags/user:storageclass: dua
+        resourceTags/user:test: nice
+        resourceTags/user:git: commit
+        resourceTags/user:stack: overflow
+        resourceTags/user:volume: stor_nod
+  - MarketplaceGenerator:
+      start_date: last_month
+      resource_id: 99995556
+      product_sku: MARBC5PQDGESPVMV
+      region: us-east-1a
+      product_name: Marketplace testing product
+      legal_entity: Red Hat Inc.
+      amount: 7
+      rate: 3
+      tags:
+        resourceTags/user:app: hcs_test
+        resourceTags/user:test: var1
+  - MarketplaceGenerator:
+      start_date: last_month
+      resource_id: 99995555
+      product_sku: MARJHRNAAEEE
+      region: us-west-1a
+      product_name: Testing Red Hat OpenShift Service on AWS
+      legal_entity: Red Hat, Inc.
+      amount: 10
+      rate: 3
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+        resourceTags/user:test: var2
+        resourceTags/user:app: hcs_test
+  - MarketplaceGenerator:
+      start_date: last_month
+      resource_id: 99995555
+      product_sku: MARJHRNAAJJJ
+      region: us-west-1a
+      product_name: Marketplace testing product - negative
+      legal_entity: Amazon Web Services, Inc.
+      amount: 5
+      rate: 3
+      tags:
+        resourceTags/user:openshift_node: ocp-nod
+        resourceTags/user:test: var3
+        resourceTags/user:app: hcs_test_negative
+
+
+finalized_report:
+  invoice_id: 987654321
+
+accounts:
+  payer: 9999999999999
+  user:
+    - 9999999999999
