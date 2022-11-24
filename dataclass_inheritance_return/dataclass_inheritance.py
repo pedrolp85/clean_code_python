@@ -3,7 +3,7 @@
 ## queremos que los clientes llamen a la interfaz de la misma forma ya sea una instancia padre o hija, por eso usamos *args en el padre
 
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import re
 
 @dataclass
@@ -36,3 +36,20 @@ print(animal_generico.get_key(SPECIFIC_PATH))
 animal_perro = Perro()
 print(animal_perro.get_key(GENERAL_PATH))
 print(animal_perro.get_key(SPECIFIC_PATH))
+
+
+@dataclass
+class Pez:
+    api_name: str = "pez"
+
+
+@dataclass 
+class Besugo(Pez,context='general'):
+    api_name: str = field(init=False)
+
+    def __post_init__(self, context):
+        if context == "general":
+            self.api_name = "pez"
+        else:
+            self.api_name = "besugo"
+
