@@ -1,15 +1,15 @@
-from dataclasses import dataclass
 import random
+from dataclasses import dataclass
+
 
 @dataclass
 class Currency:
     value: float = 0.0
 
-
     @staticmethod
     def get_random_currency():
-       
-        all_subcl = [ cls.__name__ for cls in Currency.__subclasses__() ]
+
+        all_subcl = [cls.__name__ for cls in Currency.__subclasses__()]
         return globals()[random.choice(all_subcl)]()
 
 
@@ -20,12 +20,14 @@ class AUD(Currency):
     symbol: str = "A$"
     description: str = "AUD (A$) - Australian Dollar"
 
+
 @dataclass
 class CAD(Currency):
     code: str = "CAD"
     name: str = "Canadian Dollar"
     symbol: str = "CA$"
     description: str = "CAD (CA$) - Canadian Dollar"
+
 
 @dataclass
 class RND(Currency):

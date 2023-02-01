@@ -133,11 +133,6 @@ class AwsHcsMockData:
         return True, None
 
 
-
-
-
-
-
 def test_api_aws_hcs_dataclass_poc_report_content(
     application, cost_aws_source_static, cost_boto3_session_minio, tmp_path
 ):
@@ -215,7 +210,6 @@ def test_api_aws_hcs_dataclass_poc_report_content(
                     assertion_result
                 ), f"failed assertion for field {metadata ['field']} in file {hcs_file_name},"
                 f"expected {metadata['expected']} {metadata['operator']}, {metadata['found']}"
-
 
 
 def read_marketplace_data_to_dataclass(yaml_file_name):

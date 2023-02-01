@@ -1,11 +1,12 @@
-import pytest
 import logging
 import random
+
+import pytest
 
 LOG = logging.getLogger(__name__)
 
 
-class HeavyFixture(object):
+class HeavyFixture:
     def __init__(self, request, choices=["success", "fail"]):
         self.request = request
         self.result = random.choice(choices)
@@ -32,9 +33,7 @@ def evaluate_source_setup(request, setup_fixture):
     """
 
     if setup_fixture[0]:
-        return (
-            setup_fixture[1] if len(setup_fixture) == 2 else setup_fixture[1:]
-        )
+        return setup_fixture[1] if len(setup_fixture) == 2 else setup_fixture[1:]
 
     else:
         marker = request.node.get_closest_marker("ingest_heavy_source")
@@ -80,14 +79,10 @@ def heavy_fixture_evaluation(request, setup_heavy_fixture):
 
 @pytest.mark.ingest_heavy_source
 def test_ingest_heavy_fixture(heavy_fixture_evaluation):
-    """Test to ingest heavy fixture
-
-    """
+    """Test to ingest heavy fixture"""
     assert heavy_fixture_evaluation
 
 
 def test_anytest_using_fixture(heavy_fixture_evaluation):
-    """Test to ingest heavy fixture
-
-    """
+    """Test to ingest heavy fixture"""
     assert True

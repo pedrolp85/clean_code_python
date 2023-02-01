@@ -1,4 +1,7 @@
-from typing import List, Tuple, Optional
+from typing import List
+from typing import Optional
+from typing import Tuple
+
 
 class VersionManager:
     NUM_DIGIT_VERSION = 3
@@ -19,9 +22,7 @@ class VersionManager:
             else:
                 current_version.append(0)
         return tuple(current_version)
-        
-        
-    
+
     @staticmethod
     def _sanetize_number(number_str: str) -> int:
         numbers = ""
@@ -34,25 +35,19 @@ class VersionManager:
 
     def major(self) -> "VersionManager":
         current_version = self.stack[-1]
-        self.stack.append(
-            (current_version[0] + 1, 0, 0)
-        )
+        self.stack.append((current_version[0] + 1, 0, 0))
         return self
-    
+
     def minor(self) -> "VersionManager":
         current_version = self.stack[-1]
-        self.stack.append(
-            (current_version[0], current_version[1] + 1, 0)
-        )
+        self.stack.append((current_version[0], current_version[1] + 1, 0))
         return self
 
     def patch(self) -> "VersionManager":
         current_version = self.stack[-1]
-        self.stack.append(
-            (current_version[0], current_version[1], current_version[2] + 1)
-        )
+        self.stack.append((current_version[0], current_version[1], current_version[2] + 1))
         return self
-    
+
     def rollback(self) -> "VersionManager":
         self.stack.pop()
         return self
@@ -70,7 +65,7 @@ print(VersionManager("1.2.3.d").release())
 print(VersionManager("1").release())
 print(VersionManager("1.1").release())
 
-'''
+"""
 @test.describe("Sample tests")
 def sample_tests():
 
@@ -101,14 +96,14 @@ def sample_tests():
         test.assert_equals(VersionManager().patch().rollback().release(), "0.0.1")
         test.assert_equals(VersionManager().major().patch().rollback().release(), "1.0.0")
         test.assert_equals(VersionManager().major().patch().rollback().major().rollback().release(), "1.0.0")
-    
+
     @test.it("Seperated calls")
     def it_6():
         m = VersionManager("1.2.3")
         m.major()
         m.minor()
         test.assert_equals(m.release(), "2.1.0")
-    
+
     @test.it("Exception calls")
     def it_7():
         try:
@@ -117,4 +112,4 @@ def sample_tests():
         except Exception as e:
             test.assert_equals(str(e),
 
-'''
+"""

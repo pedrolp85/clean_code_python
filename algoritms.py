@@ -1,6 +1,6 @@
-
 # 1 1 2 3 5 8 13 21
 from datetime import datetime
+
 
 def calculate_fibonacci(pos):
     if pos <= 2:
@@ -13,15 +13,17 @@ def calculate_fibonacci(pos):
         anterior_anterior = aux
     return anterior
 
+
 def recursive_fibonacci(pos):
     if pos <= 2:
         return 1
     return recursive_fibonacci(pos - 1) + recursive_fibonacci(pos - 2)
 
-def dynamic_programming_fibonacci(n):
+
+def dynamic_progr_fibonacci(n):
     f = [1, 1]
-    for i in range(2, n+1):
-        f.append(f[i-1] + f[i-2])
+    for i in range(2, n + 1):
+        f.append(f[i - 1] + f[i - 2])
     return f[n]
 
 
@@ -32,6 +34,4 @@ for i in range(1, 1000):
     ahora = datetime.now()
     print(f"Calculo recursivo '{recursive_fibonacci(i)}' ha tardado: '{datetime.now() - ahora}'")
     ahora = datetime.now()
-    print(f"Calculo dynamic programming '{dynamic_programming_fibonacci(i)}' ha tardado: '{datetime.now() - ahora}'")
-    
-
+    print(f"Con dynamic prgrmmng '{dynamic_progr_fibonacci(i)}' tarda: '{datetime.now() - ahora}'")

@@ -1,9 +1,9 @@
-import pytest
 import logging
 import random
 
-LOG = logging.getLogger(__name__)
+import pytest
 
+LOG = logging.getLogger(__name__)
 
 
 def get_currency_settings(application):
@@ -18,7 +18,6 @@ def get_currency_settings(application):
         if "api.settings.currency" and "select" in x.values()
     ][0]
 
-
     """
     # Using brackets vs .get() will cause KeyError if key doesn't exist, which we want
     """
@@ -27,9 +26,6 @@ def get_currency_settings(application):
     initial_currency = currency_settings["initialValue"]
 
     return [currency["value"] for currency in options], initial_currency
-
-
-
 
 
 def settings_rollback(func):
@@ -92,4 +88,3 @@ def test_api_settings_currency(application):
     assert sorted(currency_report_options) == sorted(
         currency_options_0
     ), "Currency options in /currency endpoint doesn't match settings page"
-

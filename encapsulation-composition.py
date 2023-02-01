@@ -1,19 +1,16 @@
 class BankAccount:
-   TOTAL_BANK_ACCOUNTS = 0
-   def __init__(self):
-     BankAccount.TOTAL_BANK_ACCOUNTS += 1
-     self.count_id = BankAccount.TOTAL_BANK_ACCOUNTS
+    TOTAL_BANK_ACCOUNTS = 0
+
+    def __init__(self):
+        BankAccount.TOTAL_BANK_ACCOUNTS += 1
+        self.count_id = BankAccount.TOTAL_BANK_ACCOUNTS
 
 
-
-
-
-#Encapsulation vs Composition -> The same think
-#Encapsulation vs Inherence ->
+# Encapsulation vs Composition -> The same think
+# Encapsulation vs Inherence ->
 
 
 class WriteFile:
-
     def write_file(self, data):
         data_to_write = self._format(data)
         file.write(data_to_write)
@@ -22,13 +19,13 @@ class WriteFile:
     def _format(data):
         pass
 
-class WriteFileJSON(WriteFile):
 
+class WriteFileJSON(WriteFile):
     def _format(data):
         return json.dumps(data)
 
-class WriteFileYAML(WriteFile):
 
+class WriteFileYAML(WriteFile):
     def _format(data):
         return yaml.dumps(data)
 

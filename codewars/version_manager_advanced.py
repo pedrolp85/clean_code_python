@@ -1,6 +1,9 @@
-from typing import List, Tuple, Optional
+from enum import Enum
+from enum import unique
+from typing import List
+from typing import Optional
+from typing import Tuple
 
-from enum import Enum, unique
 
 @unique
 class VersionUpgrade(Enum, int):
@@ -28,7 +31,7 @@ class VersionManager:
             else:
                 current_version.append(0)
         return tuple(current_version)
-    
+
     @staticmethod
     def _sanetize_number(number_str: str) -> int:
         numbers = ""
@@ -40,7 +43,9 @@ class VersionManager:
         return int(numbers) if numbers else 0
 
     @staticmethod
-    def _upgrade_version(current_version: Tuple[int, int, int], upgrade: VersionUpgrade) -> Tuple[int, int, int]:
+    def _upgrade_version(
+        current_version: Tuple[int, int, int], upgrade: VersionUpgrade
+    ) -> Tuple[int, int, int]:
         next_version = []
         for i in range(len(current_version)):
             if i < upgrade:
@@ -52,23 +57,17 @@ class VersionManager:
         return tuple(next_version)
 
     def major(self) -> "VersionManager":
-        self.stack.append(
-            self._upgrade_version(self.stack[-1], VersionUpgrade.MAJOR)
-        )
+        self.stack.append(self._upgrade_version(self.stack[-1], VersionUpgrade.MAJOR))
         return self
-    
+
     def minor(self) -> "VersionManager":
-        self.stack.append(
-            self._upgrade_version(self.stack[-1], VersionUpgrade.MINOR)
-        )
+        self.stack.append(self._upgrade_version(self.stack[-1], VersionUpgrade.MINOR))
         return self
 
     def patch(self) -> "VersionManager":
-        self.stack.append(
-            self._upgrade_version(self.stack[-1], VersionUpgrade.PATCH)
-        )
+        self.stack.append(self._upgrade_version(self.stack[-1], VersionUpgrade.PATCH))
         return self
-    
+
     def rollback(self) -> "VersionManager":
         self.stack.pop()
         return self
@@ -76,5 +75,3 @@ class VersionManager:
     def release(self) -> str:
         current_version = self.stack[-1]
         return f"{current_version[0]}.{current_version[1]}.{current_version[2]}"
-
-

@@ -1,5 +1,5 @@
-
 from typing import Callable
+
 
 def repeat_func(func: Callable) -> Callable:
     def wrapper(*args, **kwargs) -> None:
@@ -9,10 +9,12 @@ def repeat_func(func: Callable) -> Callable:
 
     return wrapper
 
+
 @repeat_func
 def return_greeting(name):
     print("Creating greeting")
     return f"Hi {name}"
+
 
 res1, res2 = return_greeting("Pedro")
 

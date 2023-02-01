@@ -1,6 +1,6 @@
 # Usamos list o dict comprehensions cuando queremos crear estructuras de datos en una sola línea,
 # por claridad de código. Cuando queremos realizar operaciones sobre los elementos, que hagan la comprehension
-# demasiado compleja, mejor usar un bucle for 
+# demasiado compleja, mejor usar un bucle for
 
 def run_calculation(i : int) -> int:
     pass
@@ -11,7 +11,7 @@ for i in range(10):
 
 numbers = [run_calculation(i) for i in range(10)]
 
-# Generalmente la versión con comprehensions es un poco más eficiente 
+# Generalmente la versión con comprehensions es un poco más eficiente
 # Vamos a ver un ejemplo más complejo de comprehensions y posteriormente,
 # asignaciones, que es una nueva feature de Python 3.8
 

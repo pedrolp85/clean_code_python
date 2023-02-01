@@ -1,7 +1,7 @@
 # los context managers se usan para gestionar recursos
 # Accesos a sockets, ficheros, bdd, que nos queremos asegurar que van a ser cerrados después de accedidos
 # a pesar de que haya una excepción antes o después del código
-# generalmente esto se conseguiría con tun try: finally, pero un context manager nos ahorra esta secuencia, 
+# generalmente esto se conseguiría con tun try: finally, pero un context manager nos ahorra esta secuencia,
 # con los métodos __enter__ y __exit__
 
 def process_file():
@@ -41,7 +41,7 @@ def start_database():
     run("systemctl start postgresql.service")
 
 class DBHandler:
-    
+
     def __enter__(self):
     stop_database()
         return self
@@ -82,9 +82,9 @@ if __name__ == "__main__":
 
 
 # Otra forma de usar contextlib es con contextlib.ContextDecorator
-# contextlib.ContextDecorator es una base Class, que nos da la lógica para aplicar 
+# contextlib.ContextDecorator es una base Class, que nos da la lógica para aplicar
 # un decorador a una función y hacer que esta se ejecute dentro del context manager
-# Para usarlo tenemos que crear una clase que herede de esa Base Class, y crear los magic methods 
+# Para usarlo tenemos que crear una clase que herede de esa Base Class, y crear los magic methods
 # __enter__ y __exit__
 # la principal diferencia es que no usamos with, sólo tenemos que ejecutar el método offline_backup
 # el problema de hacerlo así es que no podremos acceder al objeto del decorador, podría hacerse así:
@@ -103,9 +103,7 @@ class dbhandler_decorator(contextlib.ContextDecorator):
 
     def __exit__(self, ext_type, ex_value, ex_traceback):
         start_database()
-    
+
 @dbhandler_decorator()
 def offline_backup():
     run("pg_dump database")
-
-

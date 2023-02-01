@@ -1,15 +1,18 @@
 from pprint import pprint
 
-constante_1 = {'saludo': 'hola', 'despedida': 'adios'}
+constante_1 = {"saludo": "hola", "despedida": "adios"}
+
 
 def mutable_params(diction=constante_1):
     pprint(diction)
     return diction
 
+
 a = mutable_params()
 a["tonto"] = "tu"
 
 mutable_params()
+
 
 def por_valor_y_referencia(a: int, b: str, c: list, d: dict) -> None:
     print(f"{id(a)} {id(b)} {id(c)} {id(d)}")
@@ -19,9 +22,10 @@ def por_valor_y_referencia(a: int, b: str, c: list, d: dict) -> None:
     d = {}
     print(f"{id(a)} {id(b)} {id(c)} {id(d)}")
 
+
 entero = 1
 cadena = "string"
-lista = [1,2,3,4]
+lista = [1, 2, 3, 4]
 diccionario = {"h": "b"}
 
 
