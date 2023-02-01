@@ -1,9 +1,15 @@
 # Usamos list o dict comprehensions cuando queremos crear estructuras de datos en una sola línea,
-# por claridad de código. Cuando queremos realizar operaciones sobre los elementos, que hagan la comprehension
+# por claridad de código. Cuando queremos realizar operaciones sobre los elementos,
+# que hagan la comprehension
 # demasiado compleja, mejor usar un bucle for
+import re
+from typing import Iterable
+from typing import Set
 
-def run_calculation(i : int) -> int:
+
+def run_calculation(i: int) -> int:
     pass
+
 
 numbers = []
 for i in range(10):
@@ -16,10 +22,8 @@ numbers = [run_calculation(i) for i in range(10)]
 # asignaciones, que es una nueva feature de Python 3.8
 
 
-ARN_REGEX = 'hola'
+ARN_REGEX = "hola"
 
-import re
-from typing import Iterable, Set
 
 ARN_REGEX = re.compile(r"arn:aws:[a-z0-9\-]*:[a-z0-9\-]*:(?P<account_id>\d+):.*")
 
@@ -50,6 +54,7 @@ def collect_account_ids_from_arns3(arns: Iterable[str]) -> Set[str]:
         if (matched := re.match(ARN_REGEX, arn)) is not None
     }
 
+
 # filter(function, iterable):
 # Devuelve los elementos del iterable que evaluán True en la función 'function'
 # Esto es un poco más rebuscado, si usamos filter(None, iterable)
@@ -57,10 +62,10 @@ def collect_account_ids_from_arns3(arns: Iterable[str]) -> Set[str]:
 # devuelven True
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     input_example = ["plopezpe", "pedro", "plopezpe@redhat.com", "Toshiba"]
-        user_id:name:email:hardware
+    # user_id:name:email:hardware
     res1 = collect_account_ids_from_arns(input_example)
-    res2 = collect_account_ids_from_arns_comp(input_example)
+    # res2 = collect_account_ids_from_arns_comp(input_example)
 
-    print(res1,res2)
+    # print(res1, res2)

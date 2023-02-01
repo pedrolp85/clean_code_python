@@ -43,8 +43,8 @@ class VersionManager:
             self.attr_minor = int(minor)
             self.attr_patch = int(patch)
 
-        except ValueError as e:
-            raise InvalidVersion(f"Error occured while parsing version!")
+        except ValueError:
+            raise InvalidVersion("Error occured while parsing version!")
 
         self.previous_major = None
         self.previous_minor = None
@@ -92,7 +92,7 @@ class VersionManager:
 
             return self
         else:
-            raise NoRollback(f"Cannot rollback!")
+            raise NoRollback("Cannot rollback!")
 
     def release(self):
         return f"{self.attr_major}.{self.attr_minor}.{self.attr_patch}"

@@ -2,6 +2,7 @@
 # *args
 # Se usa cuando nos pasan un número de argumentos en los que el nombre del argumento es indiferente
 # *arg convierte los input en una tupla, que podemos iterar dentro de la función
+from typing import Optional
 
 
 def multiply(a, b):
@@ -77,8 +78,6 @@ default_value("Pedro", 30, married=False)
 # Argumentos opcionales en funciones con type hints
 # Optional se pone cuando un argumento puede ser None, si sólo es opcional y va a tener un
 # valor por defecto, se tipa como ese valor por defecto
-
-from typing import Optional
 
 
 def default_value_type_hints(
