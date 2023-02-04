@@ -38,6 +38,6 @@ def test_func_two_arguments(one_arg: str, other_arg: str) -> None:
     print(f"Decoramos con {one_arg}, {other_arg}")
 
 
-test_func_one_argument(f"un solo arg")
-test_func_one_argument_general(f"un solo arg")
-test_func_two_arguments(f"un arg", f"otro arg")
+test_func_one_argument(f'{"un solo arg"}')
+test_func_one_argument_general(f'{"un solo arg"}')
+test_func_two_arguments(f'{"un arg"}', f'{"otro arg"}')

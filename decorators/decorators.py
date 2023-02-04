@@ -93,6 +93,7 @@ doSomethingBefore(scream)
 
 ################################################################
 
+
 # A decorator is a function that expects ANOTHER function as parameter
 def my_shiny_new_decorator(a_function_to_decorate):
 

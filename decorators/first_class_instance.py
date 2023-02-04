@@ -3,7 +3,7 @@ from typing import Optional
 
 
 def argument_function_one() -> None:
-    print(f"I am a function passed as an argument")
+    print(f'{"I am a function passed as an argument"}')
 
 
 def argument_function_two(name: str) -> None:

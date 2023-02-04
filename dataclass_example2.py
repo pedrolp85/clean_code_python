@@ -100,16 +100,16 @@ if __name__ == "__main__":
             ui_key = get_ui_name_from_card(secondary_key)
             print(f"En la API ordenamos por {key}, filtramos por {api_call_key}")
             print(f"En la UI ordenamos por {key}, filtramos por {ui_key}")
-            print(f"\n")
+            print("\n")
 
     """
     Con dataclasses
     """
-    print(f"\n\n")
+    print("\n\n")
     for key in Player(), Team(), Conference():
         iterate_list = [item for item in (Player(), Team(), Conference()) if item != key]
 
         for secondary_key in iterate_list:
             print(f"En la API ordenamos por {key.api_name}, filtramos por {secondary_key.api_name}")
             print(f"En la UI ordenamos por {key.ui_name}, filtramos por {secondary_key.ui_name}")
-            print(f"\n")
+            print("\n")
