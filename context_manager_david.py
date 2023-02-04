@@ -5,6 +5,7 @@
 # with xxxxx():
 #    pass
 #
+from contextlib import contextmanager
 
 
 class Example:
@@ -26,8 +27,6 @@ with Example() as ejemplo:
 with Example():
     print("upss!")
     # raise Exception()
-
-from contextlib import contextmanager
 
 
 @contextmanager

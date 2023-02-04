@@ -1,8 +1,5 @@
-import random
 from dataclasses import dataclass
-from dataclasses import field
 from typing import Dict
-from typing import List
 
 import pandas as pd
 import yaml
@@ -105,7 +102,8 @@ class AwsHcsMockData:
         ]
 
         for field in self.__dataclass_fields__:
-            print(f"Compare {field} *{getattr(self, field)}* with *{panda_row[field]}*")
+            if field not in unfinished_calculations:
+                print(f"Compare {field} *{getattr(self, field)}* with *{panda_row[field]}*")
 
 
 def read_marketplace_data_to_dataclass(yaml_file_name):

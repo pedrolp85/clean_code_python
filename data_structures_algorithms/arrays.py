@@ -6,15 +6,7 @@
 import random
 from typing import List
 
-mylist = ["apple", "banana", "cherry"]
+mylist: List = ["apple", "banana", "cherry"]
 random.shuffle(mylist)
 
 print(mylist)
-
-
-def shuffle_implementation(input_list: List) -> List:
-    return_list = []
-    new_elements = []
-
-    for i in input_list:
-        new_position = random.randrange(l := len(input_list))
