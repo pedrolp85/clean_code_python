@@ -1,5 +1,6 @@
 import sys
 
+
 # Python program to illustrate destructor
 class Employee:
 

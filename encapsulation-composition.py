@@ -1,3 +1,10 @@
+import json
+from abc import abstractmethod
+
+import requests
+import yaml
+
+
 class BankAccount:
     TOTAL_BANK_ACCOUNTS = 0
 
@@ -13,7 +20,8 @@ class BankAccount:
 class WriteFile:
     def write_file(self, data):
         data_to_write = self._format(data)
-        file.write(data_to_write)
+        return data_to_write
+        # file.write(data_to_write)
 
     @abstractmethod
     def _format(data):

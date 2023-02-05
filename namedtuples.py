@@ -1,4 +1,6 @@
+from typing import NamedTuple
 from typing import Tuple
+
 
 persona1 = ("David", "Garcia", "Alvarez", "Madrid")
 persona2 = ("Pedro", "Lopez", "Perez", "Galicia")
@@ -12,8 +14,6 @@ def pinta_persona(persona: Tuple[str, ...]):
 
 pinta_persona(persona1)
 pinta_persona(persona2)
-
-from typing import NamedTuple
 
 
 class Persona(NamedTuple):

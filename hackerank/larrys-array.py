@@ -41,7 +41,6 @@ while index < len(larry) - 1:
     print(f"para index {index}")
 
     if (larry[index + 1] - larry[index]) > 1:
-        # print(f"diferencia entre indice y el sig es {larry[index+1] - larry[index]}, {(larry[index+1] - larry[index])  > 1})")
 
         first_part, subset, last_part = split_array(larry, index + 1)
         print(f"subconjutnos inicio {first_part}, subset: {subset}, final: {last_part}")
@@ -60,5 +59,4 @@ while index < len(larry) - 1:
 
     else:
         print(f"los indices {index}, {index+1} estan ordenados")
-        # print(f"diferencia entre indice y el sig es {larry[index+1] - larry[index]}, {(larry[index+1] - larry[index])  > 1})")
         index += 1

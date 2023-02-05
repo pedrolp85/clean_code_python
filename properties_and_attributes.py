@@ -1,7 +1,13 @@
 # ATRIBUTOS
 # En Python no hay atributos privados per se, pero hay ciertas convenciones
 # los atributos privados (Por ejemplo timeout, más abajo) son precedidos por una _
-from inspect import Attribute
+# from inspect import Attribute
+from dataclasses import dataclass
+from functools import cached_property
+from functools import lru_cache  # python 3.8
+from time import sleep
+
+# from functools import cache Python 3.9
 
 
 class Connector:
@@ -45,12 +51,16 @@ AttributeError: 'Connector' object has no attribute '__timeout'
 """
 
 # Esta vez definimos el atributo timeout con self.__timeout,
-# y cuando intentamos acceder a él desde fuera, tenemos un error, pero este error no es 'no se puede acceder',
+# y cuando intentamos acceder a él desde fuera, tenemos un error,
+# pero este error no es 'no se puede acceder',
 # si no 'El atributo no existe'
-# esto es debido a que cuando usamos __ Python cambia el nombre del atributo a _classname__attrname, en este caso seria _Connector__timeout
+# esto es debido a que cuando usamos __
+# Python cambia el nombre del atributo a _classname__attrname,
+#  en este caso seria _Connector__timeout
 # y se debería acceder de la siguiente forma: conn._Connector__timeout = 30
 
-# En realidad, el __ en Python se creó para algo totalmente distinto, para override de métodos de clase que va a ser
+# En realidad, el __ en Python se creó para algo totalmente distinto,
+# para override de métodos de clase que va a ser
 # entendida múltiples veces, para que no hay colisiones con los nombres de los métodos
 
 # La double underscore __ NO DEBERÍA USARSE EN PYTHON
@@ -59,11 +69,15 @@ AttributeError: 'Connector' object has no attribute '__timeout'
 # PROPIEDADES
 
 # LLamamos propiedades a los 'managed attributes'
-# Son atributos de los que podemos modificar su implmentación interna sin cambiar la API pública de la clase
-# Si los atributos son accesibles desde fuera de la clase, el que use la clase puede modificarlos, pero si
-# llega un momento que la implentación interna cambia, el que usa la clase debería cambiar todo el código
+# Son atributos de los que podemos modificar su implmentación interna
+# sin cambiar la API pública de la clase
+# Si los atributos son accesibles desde fuera de la clase,
+# el que use la clase puede modificarlos, pero si
+# llega un momento que la implentación interna cambia,
+# el que usa la clase debería cambiar todo el código
 
-# Otros lenguajes como Java o C++ aconsejan nunca exponer los atributos para evitar este tipo de problema, sino implementar
+# Otros lenguajes como Java o C++ aconsejan nunca exponer los atributos
+# para evitar este tipo de problema, sino implementar
 # métodos setter y getter
 
 
@@ -148,8 +162,10 @@ AttributeError: 'Circle' object has no attribute '_radius'
 
 # ATRIBUTOS READ-ONLY
 
-# El principal uso de @property es que el usario de la clase no pueda modificar un atributo
-# Por ejemplo digamos que queremos crear una clase Rectangulo con la propiedad lado que no queremos
+# El principal uso de @property es que el usario de la clase no
+# pueda modificar un atributo
+# Por ejemplo digamos que queremos crear una clase Rectangulo
+# con la propiedad lado que no queremos
 # que puedan cambiar de valor
 
 
@@ -185,7 +201,7 @@ AttributeError: can't set attribute
 
 """
 
-import enum
+
 
 class Player():
     def init(self, name : str, number: int, average_points: float) -> None:
@@ -225,9 +241,6 @@ class Player():
 # Esto se puede implmentar de forma que el atributo sea modificable desde fuera o no
 # En este ejemplo sí podrías modificar el atributo radius
 
-from functools import cached_property
-from time import sleep
-
 
 class Circle:
     def __init__(self, radius):
@@ -263,11 +276,6 @@ class Circle:
 # Para evitar que se pueda modificar desde fuera el atributo, habría que hacerlo así:
 
 # circle.py
-
-from functools import lru_cache  # python 3.8
-
-# from functools import cache Python 3.9
-from time import sleep
 
 
 class Circle:
@@ -310,16 +318,14 @@ AttributeError: can't set attribute
 
 # Esta es la definición clásica de un método __init__
 
-
+"""
 class RegularCard:
     def __init__(self, rank, suit):
         self.rank = rank
         self.suit = suit
-
+"""
 
 # Esto es lo mismo con una dataclass
-
-from dataclasses import dataclass
 
 
 @dataclass
@@ -329,8 +335,10 @@ class DataClassCard:
 
 
 # Además una dataclass implement por detrás, además del __init__,
-# otros métodos que nos ayudan, como __repr__ para tener una representación de la clase en str
-# __eq__ que nos sirve para comparar objetos. Para que una clase normal fuese igual que una dataclass de inicio,
+# otros métodos que nos ayudan, como __repr__ para tener
+# una representación de la clase en str
+# __eq__ que nos sirve para comparar objetos.
+# Para que una clase normal fuese igual que una dataclass de inicio,
 # debería ser algo así:
 
 

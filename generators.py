@@ -61,8 +61,8 @@ generator = (pow(x, 2) for x in my_list)
 print(generator)
 
 print("we will iterate over the list")
-for l in list_:
-    print(l)
+for el in list_:
+    print(el)
 
 print("we will iterate over the generator")
 for g in generator:
@@ -120,4 +120,4 @@ class Greating:
 
 class RudeGreating(Greating):
     def greating(_):
-        print(f"HELLO!")
+        print(f'{"HELLO!"}')

@@ -2,7 +2,7 @@
 from typing import Callable
 
 
-def to_uppercase(func: Callable) -> str:
+def to_uppercase(func: Callable) -> Callable:
     print(f'{"Entramos en el decorador"}')
 
     def wrapper() -> str:
