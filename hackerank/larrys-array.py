@@ -1,10 +1,13 @@
 from typing import List
+from typing import Optional
 from typing import Tuple
 
 larry = [1, 6, 5, 2, 4, 3]
 
 
-def split_array(array: List[int], index: int) -> Tuple[List[int], List[int], List[int]]:
+def split_array(
+    array: List[int], index: int
+) -> Tuple[Optional[List[int]], Optional[List[int]], Optional[List[int]]]:
     # return array[:index], array[index:index+3], array[index+3:]
     inicio = array[:index] if array[:index] else None
     subset = array[index : index + 3] if len(array[index : index + 3]) == 3 else None

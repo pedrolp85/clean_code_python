@@ -33,10 +33,10 @@ class VersionManager:
             if len(splited_string) > 2:
                 patch = splited_string[2]
             else:
-                patch = 0
+                patch = "0"
         else:
-            minor = 0
-            patch = 0
+            minor = "0"
+            patch = "0"
 
         try:
             self.attr_major = int(major)
@@ -99,9 +99,3 @@ class VersionManager:
 
 
 print(VersionManager().major().rollback().release())
-
-variable = 0
-if variable:
-    print("Si entro")
-else:
-    print("No entro")

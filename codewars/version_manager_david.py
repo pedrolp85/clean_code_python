@@ -5,14 +5,14 @@ from typing import Tuple
 
 class VersionManager:
     NUM_DIGIT_VERSION = 3
-    stack: List[Tuple[int, int, int]]
+    stack: List[Tuple[int, ...]]
 
     def __init__(self, version: Optional[str] = None) -> None:
         version = version or "0.0.1"
         self.stack = [self._parse_version(version)]
 
     @classmethod
-    def _parse_version(cls, version: str) -> Tuple[int, int, int]:
+    def _parse_version(cls, version: str) -> Tuple[int, ...]:
         current_version = []
         version_splited = version.split(".")
         len_version_splited = len(version_splited)

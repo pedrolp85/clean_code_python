@@ -1,28 +1,28 @@
 class Communication:
-    def send_notification():
+    def send_notification(self):
         pass
 
 
 class SMSCommunication(Communication):
-    def send_notification():
+    def send_notification(self):
         pass
         # do something!
 
 
 class EmailCommunication(Communication):
-    def send_notification():
+    def send_notification(self):
         pass
         # do something!
 
 
 class SlackCommunication(Communication):
-    def send_notification():
+    def send_notification(self):
         pass
         # do something!
 
 
 class PhoneCommunication(Communication):
-    def send_notification():
+    def send_notification(self):
         pass
         # do something!
 
