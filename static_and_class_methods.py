@@ -17,6 +17,8 @@
 #
 # No recibe ni cls ni self
 # Se declara con el decorador @staticmethod
+import random
+from dataclasses import dataclass
 
 
 class Person:
@@ -63,9 +65,6 @@ print(s.average_life_ex())
 
 
 # otro ejemplo
-
-from dataclasses import dataclass
-import random
 
 
 @dataclass

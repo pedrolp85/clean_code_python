@@ -1,4 +1,4 @@
-exclude: dataclass_and_pandas|test_ejemplo.py|pydantic_test
+exclude: dataclass_and_pandas|test_ejemplo.py|pydantic_test|encapsulation-composition.py
 
 
 repos:
