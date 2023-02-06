@@ -1,8 +1,8 @@
 from typing import Callable
 
 
-def repeat_func(func: Callable) -> Callable:
-    def wrapper(*args, **kwargs) -> None:
+def repeat_func(func: Callable):
+    def wrapper(*args, **kwargs):
         func(*args, **kwargs)
         func(*args, **kwargs)
         return func(*args, **kwargs), "decorator_return"

@@ -1,3 +1,5 @@
+"""
+
 def shout(word="yes"):
     return word.capitalize() + "!"
 
@@ -157,7 +159,7 @@ another_stand_alone_function()
 
 def bread(func):
     def wrapper(food):
-        print(r"</''''''\>")
+        print(r"</""" r"""\>")
         func(food)
         print(r"<\______/>")
 
@@ -300,3 +302,4 @@ m.sayYourAge()
 # (<__main__.Mary object at 0xb7d303ac>,)
 # {}
 # I am 28, what did you think?
+"""

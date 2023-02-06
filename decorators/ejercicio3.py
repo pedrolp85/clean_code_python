@@ -4,19 +4,18 @@ Decora la función de forma que se ejecute 2 veces
 Crea otra función igual a la primera pero con 2 argumentos
 Modifica el decorador para que valga para ambas
 """
-from typing import Callable
 
 
-def repeat_func_one_argument(func: Callable) -> Callable:
-    def wrapper(inner_arg: str) -> None:
+def repeat_func_one_argument(func):
+    def wrapper(inner_arg: str):
         func(inner_arg)
         func(inner_arg)
 
     return wrapper
 
 
-def repeat_func_any_argument(func: Callable) -> Callable:
-    def wrapper_repeat_func(*arg, **kwargs) -> None:
+def repeat_func_any_argument(func):
+    def wrapper_repeat_func(*arg, **kwargs):
         func(*arg, **kwargs)
         func(*arg, **kwargs)
 

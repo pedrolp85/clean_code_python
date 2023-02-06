@@ -5,6 +5,8 @@
 # API to UI DATA MODEL WITH CONSTANTS
 ######################################################
 from dataclasses import dataclass
+from typing import Optional
+
 
 NBA_DETAILS_MODEL = {
     "player": {
@@ -67,7 +69,7 @@ class Player(NBAdetails):
     ui_name: str = "Player"
     api_name: str = "player"
     card_name: str = "Player Name"
-    name: str = None
+    name: Optional[str] = None
 
 
 @dataclass
@@ -75,7 +77,7 @@ class Team(NBAdetails):
     ui_name: str = "Team"
     api_name: str = "team"
     card: str = "Team Name"
-    name: str = None
+    name: Optional[str] = None
 
 
 @dataclass
@@ -83,7 +85,7 @@ class Conference(NBAdetails):
     ui_name: str = "Conference"
     api_name: str = "conference"
     card: str = "Conference Name"
-    name: str = None
+    name: Optional[str] = None
 
 
 if __name__ == "__main__":
@@ -106,10 +108,10 @@ if __name__ == "__main__":
     Con dataclasses
     """
     print("\n\n")
-    for key in Player(), Team(), Conference():
-        iterate_list = [item for item in (Player(), Team(), Conference()) if item != key]
+    for another_key in Player(), Team(), Conference():
+        iterate_list = [item for item in (Player(), Team(), Conference()) if item != another_key]
 
         for secondary_key in iterate_list:
-            print(f"En la API ordenamos por {key.api_name}, filtramos por {secondary_key.api_name}")
-            print(f"En la UI ordenamos por {key.ui_name}, filtramos por {secondary_key.ui_name}")
+            print(f"ordenamos por {another_key.api_name}, filtramos por {secondary_key.api_name}")
+            print(f"ordenamos por {another_key.ui_name}, filtramos por {secondary_key.ui_name}")
             print("\n")
