@@ -1,3 +1,5 @@
+exclude: dataclass_and_pandas|test_ejemplo.py|pydantic_test
+
 
 repos:
 - repo: https://github.com/asottile/reorder_python_imports
