@@ -40,16 +40,13 @@ index = 0
 
 
 while index < len(larry) - 1:
-
     print(f"para index {index}")
 
     if (larry[index + 1] - larry[index]) > 1:
-
         first_part, subset, last_part = split_array(larry, index + 1)
         print(f"subconjutnos inicio {first_part}, subset: {subset}, final: {last_part}")
 
         if subset:
-
             while not (i := is_first_the_lowest(subset)):
                 subset = rotate_array(subset)
                 # print(f" subset rotado{rotate_array(subset)}")

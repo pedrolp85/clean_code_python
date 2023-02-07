@@ -3,7 +3,6 @@ import sys
 
 # Python program to illustrate destructor
 class Employee:
-
     # Initializing
     def __init__(self):
         print("Employee created.")

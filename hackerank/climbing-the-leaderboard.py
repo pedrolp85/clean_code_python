@@ -12,7 +12,6 @@ def remove_duplicates(array: List[int]) -> List[int]:
     index = 0
     value = 10000000
     while index < len(array):
-
         if array[index] < value:
             return_list.append(array[index])
             value = array[index]
@@ -35,7 +34,6 @@ def remove_duplicates_david(array: List[int]) -> List[int]:
 
 
 def solve_ranked_first_version(ranked, player):
-
     player_rank = []
     unique_sorted_rank = list(set(ranked))
     unique_sorted_rank.sort()
@@ -43,7 +41,6 @@ def solve_ranked_first_version(ranked, player):
     i = 0
     current_position = len(unique_sorted_rank) + 1
     for score in player:
-
         if current_position > 1:
             while i < len(unique_sorted_rank) and score >= unique_sorted_rank[i]:
                 current_position -= 1
@@ -55,7 +52,6 @@ def solve_ranked_first_version(ranked, player):
 
 
 def solve_ranked_no_set(ranked, player):
-
     player_rank = []
     unique_rank = remove_duplicates_david(ranked)
 
@@ -64,7 +60,6 @@ def solve_ranked_no_set(ranked, player):
 
     for score in player:
         if current_position > 1:
-
             while rank_index >= 0 and score >= unique_rank[rank_index]:
                 current_position -= 1
                 rank_index -= 1
@@ -86,7 +81,6 @@ def solve_ranked_no_unique(ranked, player):
         last_value = ranked[0]
 
         while rank_index <= ranked_size and score < ranked[rank_index]:
-
             if ranked[rank_index] != last_value:
                 position += 1
             rank_index += 1
@@ -122,7 +116,6 @@ def solve_ranked_no_unique_david(ranking, player):
 
 
 if __name__ == "__main__":
-
     ranked = [100, 100, 50, 40, 40, 20, 10]
     player = [1, 5, 25, 50, 120]
 

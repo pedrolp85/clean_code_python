@@ -73,7 +73,6 @@ class Animal:
 
     @staticmethod
     def get_random_animal():
-
         all_subcls = [subclass() for subclass in Animal.__subclasses__()]
         print(all_subcls)
         return random.choice(all_subcls)
