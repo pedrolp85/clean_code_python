@@ -21,6 +21,7 @@ class Cadena:
     def __init__(self, initial_value="aa"):
         self.cadena = initial_value
 
+    @conditional_uppercase
     def get_string(self):
         return f"{self.cadena}"
 
@@ -28,6 +29,6 @@ class Cadena:
         self.cadena += adding_chars
 
 
-cadena = Cadena()
+cadena = Cadena("a")
 cadena.add_more_cadena("bb")
 print(cadena.get_string())
