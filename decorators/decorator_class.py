@@ -8,9 +8,8 @@ class MyDecorator:
         self.num_times = 0
 
     def __call__(self, *args, **kwargs):
-        
         original_value = self.func(*args, **kwargs)
-        self.num_times +=1
+        self.num_times += 1
         print(f"Call {self.num_times} of {self.func.__name__!r}")
 
         if self.num_times % 2 == 0:
