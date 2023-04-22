@@ -8,6 +8,6 @@ services:
      - 3306:3306
     volumes:
     - initialize_db.sql:/docker-entrypoint-initdb.d/initialize_db.sql
-    environment: 
+    environment:
       - MYSQL_DATABASE=hackerrank
       - MYSQL_ROOT_PASSWORD=password

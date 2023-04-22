@@ -32,11 +32,11 @@ INSERT INTO manufacturer (name, enterprise_name) VALUES
     ;
 INSERT INTO l3interface (name, ip_address ) VALUES
     ('mgmt0','172.16.0.22'),
-    ('FastEthernet0','172.16.0.23') 
+    ('FastEthernet0','172.16.0.23')
     ;
 INSERT INTO device (name, model, manufacturer_id, mgmt_interface_id) VALUES
     ('FW_INT1','VM100',1, 1),
-    ('BranchCSR1000v','iosxe',2, 2) 
+    ('BranchCSR1000v','iosxe',2, 2)
     ;
 SELECT *
 FROM device
