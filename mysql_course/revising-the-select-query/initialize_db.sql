@@ -4,44 +4,31 @@ mysql -u root -ppassword << QUERY_INPUT
 
 USE hackerrank;
 
-CREATE TABLE manufacturer (
+CREATE TABLE city (
     id int NOT NULL AUTO_INCREMENT,
-    name varchar(10) NOT NULL,
-    enterprise_name varchar(25) NOT NULL,
+    name varchar(17) NOT NULL,
+    countrycode varchar(3) NOT NULL,
+    district varchar(20) NOT NULL,
+    population int NOT NULL,
     PRIMARY KEY (id)
 );
-CREATE TABLE l3interface (
-    id int NOT NULL AUTO_INCREMENT,
-    name varchar(20) NOT NULL,
-    ip_address varchar(20) NOT NULL,
-    PRIMARY KEY (id)
-);
-CREATE TABLE device (
-    id int NOT NULL AUTO_INCREMENT,
-    name varchar(20) NOT NULL,
-    model varchar(20) NOT NULL,
-    manufacturer_id int ,
-    mgmt_interface_id int,
-    PRIMARY KEY (id),
-    FOREIGN KEY (manufacturer_id) REFERENCES manufacturer(id),
-    FOREIGN KEY (mgmt_interface_id) REFERENCES l3interface(id)
-);
-INSERT INTO manufacturer (name, enterprise_name) VALUES
-    ('paloalto','PALO ALTO NETWORKS INC.'),
-    ('cisco', 'CISCO SYSTEMS INC.')
+
+INSERT INTO city (name, countrycode, district, population) 
+VALUES
+    ("Rotterdam", "NLD",  "Zuid-Holland",593321),
+    ("Scottsdale", "USA", "Arizona", 202705),
+    ("Corona", "USA", "California",124966),
+    ("Concord", "USA", "California", 121780),
+    ("Cedar Rapids", "USA", "Iowa", 120758),
+    ("Coral Springs", "USA", "Florida", 117549),
+    ("Fairfield", "USA", "California", 92256),
+    ("Boulder", "USA", "Colorado", 91238),
+    ("Fall River", "USA", "Massachusetts", 90555)
     ;
-INSERT INTO l3interface (name, ip_address ) VALUES
-    ('mgmt0','172.16.0.22'),
-    ('FastEthernet0','172.16.0.23')
-    ;
-INSERT INTO device (name, model, manufacturer_id, mgmt_interface_id) VALUES
-    ('FW_INT1','VM100',1, 1),
-    ('BranchCSR1000v','iosxe',2, 2)
-    ;
+
+
+
 SELECT *
-FROM device
-INNER JOIN manufacturer
-ON device.manufacturer_id = manufacturer.id
-INNER JOIN l3interface
-ON device.mgmt_interface_id = l3interface.id
+FROM city
+
 QUERY_INPUT
