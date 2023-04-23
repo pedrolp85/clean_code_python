@@ -5,15 +5,20 @@
 
 table_name: city, described bellow
 
-+----------+--------------+------+-----+-------------------+
-| Field    | Type         | Null | Key | Default           |                       
-+----------+--------------+------+-----+-------------------+
-| id       | int          | NO   | PRI | NULL              |                             
-| name     | varchar(17)  | NO   |     | NULL              |                             
-| ctrycode | varchar(3)   | NO   |     |                   |                             
-| district | varchar(20)  | YES  |     | NULL              |                             
-|population| int          |      |     |                   |
-+----------+--------------+------+-----+-------------------+
++----+---------------+-------------+---------------+------------+
+| id | name          | countrycode | district      | population |
++----+---------------+-------------+---------------+------------+
+|  1 | Rotterdam     | NLD         | Zuid-Holland  |     593321 |
+|  2 | Scottsdale    | USA         | Arizona       |     202705 |
+|  3 | Corona        | USA         | California    |     124966 |
+|  4 | Concord       | USA         | California    |     121780 |
+|  5 | Cedar Rapids  | USA         | Iowa          |     120758 |
+|  6 | Coral Springs | USA         | Florida       |     117549 |
+|  7 | Fairfield     | USA         | California    |      92256 |
+|  8 | Boulder       | USA         | Colorado      |      91238 |
+|  9 | Fall River    | USA         | Massachusetts |      90555 |
++----+---------------+-------------+---------------+------------+
+
 
 Query all columns for all American cities in the CITY table with populations larger than 100000. The CountryCode for America is USA.
 
@@ -31,3 +36,4 @@ select * from city
 
 Query all columns for a city in CITY with the ID 1661.
 select * from city where id=1661;
+
