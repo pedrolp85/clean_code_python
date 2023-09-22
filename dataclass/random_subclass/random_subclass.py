@@ -8,8 +8,8 @@ class Currency:
 
     @staticmethod
     def get_random_currency():
-        all_subcl = [cls.__name__ for cls in Currency.__subclasses__()]
-        return globals()[random.choice(all_subcl)]()
+        all_subcls = [subclass() for subclass in Currency.__subclasses__()]
+        return random.choice(all_subcls)
 
 
 @dataclass
