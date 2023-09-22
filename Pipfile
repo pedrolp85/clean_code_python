@@ -11,6 +11,7 @@ pydantic = "*"
 Requests = "*"
 datamodel-code-generator = "*"
 httpx = "*"
+pytest = "*"
 
 [dev-packages]
 
