@@ -1,0 +1,2 @@
+load balancing,Object_storage,dns
+ELB,S3 Buckets,Route53

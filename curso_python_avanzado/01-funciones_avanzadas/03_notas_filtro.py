@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Created on Fri Jun 26 17:02:25 2020
 
@@ -6,8 +5,10 @@ Created on Fri Jun 26 17:02:25 2020
 """
 
 
-notas={}
-opcion=0
+notas = {}
+opcion = 0
+
+
 def menu():
     print("1. Añadir nota")
     print("2. Calcular media")
@@ -16,45 +17,57 @@ def menu():
     print("5. Ver suspensos")
     print("6. Salir")
     global opcion
-    opcion=int(input("opcion:"))
+    opcion = int(input("opcion:"))
     return
+
+
 def leerNota():
-    nota=int(input("Introduce una nota\n"))
-    nombre=input("Introduce un nombre")
-    notas[nombre]=nota
+    nota = int(input("Introduce una nota\n"))
+    nombre = input("Introduce un nombre")
+    notas[nombre] = nota
     return
+
+
 def notaMedia():
-    media=0.0    
+    media = 0.0
     for n in notas.values():
-        media+=n
-    media/=len(notas)
-    print("Nota media: ",media)
+        media += n
+    media /= len(notas)
+    print("Nota media: ", media)
     return
+
+
 def aprobados():
-    aprobados=0
+    aprobados = 0
     for n in notas.values():
-        if n>=5:
-            aprobados+=1
+        if n >= 5:
+            aprobados += 1
     print("Total de aprobados ", aprobados)
     return
+
+
 def recuperarNota():
-    nombre=input("Introduce un nombre")
-    nota=notas[nombre]
-    print (nota)
-    return 
+    nombre = input("Introduce un nombre")
+    nota = notas[nombre]
+    print(nota)
+    return
+
+
 def suspensos():
-    suspensos=list(filter(lambda k:notas[k]<5,notas.keys()))
+    suspensos = list(filter(lambda k: notas[k] < 5, notas.keys()))
     print(suspensos)
     return
-while(opcion<5):
+
+
+while opcion < 5:
     menu()
-    if opcion==1:     
+    if opcion == 1:
         leerNota()
-    elif opcion==2:
+    elif opcion == 2:
         notaMedia()
-    elif opcion==3:
+    elif opcion == 3:
         aprobados()
-    elif opcion==4:
+    elif opcion == 4:
         recuperarNota()
-    elif opcion==5:
+    elif opcion == 5:
         suspensos()
