@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import csv
 from dataclasses import dataclass
 
@@ -19,18 +20,18 @@ def read_csv_helper(filepath):
 @dataclass
 class LoadBalancing():
     file_header: str = "load balancing"
-    
+
 
 class AWSLoadBalancing(LoadBalancing):
     name: str = "ELB"
-    
+
 class AzureLoadBalancing(LoadBalancing):
     name: str = "Load Balancer"
-    
+
     "load balancing": "Load Balancer",
     "Object_storage": "Blob Storage",
-    "dns": "Azure DNS" ,    
+    "dns": "Azure DNS" ,
 
 @dataclass
 class AWSExpectedLineFile():
-    load_balancer: AWSLoadBalancing 
+    load_balancer: AWSLoadBalancing
