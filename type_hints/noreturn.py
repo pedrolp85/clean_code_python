@@ -1,8 +1,10 @@
 from typing import NoReturn
+
 # from typing import Never (Python 3.11+
 
+
 def stop() -> NoReturn:
-    raise Exception('no way')
+    raise Exception("no way")
 
 
 def unreachable_code() -> None:
@@ -12,6 +14,7 @@ def unreachable_code() -> None:
 
 def never_call_me(arg: NoReturn) -> None:
     pass
+
 
 def int_or_str(arg: int | str) -> None:
     never_call_me(arg)  # type checker error

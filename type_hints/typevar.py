@@ -23,14 +23,13 @@ from typing import TypeVar
 
 T = TypeVar("T")
 
+
 def generic_identity(arg: T) -> T:
     return arg
+
 
 result3 = generic_identity(43)
 print(result3 + "!")
 
 result4 = generic_identity("hi")
 print(result4 + "!")
-
-
-

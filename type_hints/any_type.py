@@ -1,8 +1,8 @@
-from typing import Any
-
-
 def double(x):
     return x * 2
+
+
+from typing import Any
 
 
 def any_double(x: Any) -> Any:
@@ -11,4 +11,3 @@ def any_double(x: Any) -> Any:
 
 def object_double(x: object) -> object:
     return x * 2
-

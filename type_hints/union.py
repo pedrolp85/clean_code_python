@@ -1,6 +1,4 @@
 # from typing import Union
-
-
 # def test_union(x: Union[int, str]) -> None:
 def test_union(x: int | str) -> None:
     x + 1
