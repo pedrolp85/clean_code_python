@@ -13,8 +13,8 @@ class A:
 
 
 a = A(1)
-a.x = 2  # OK!
-a.y = 3  # Error: "A" has no attribute "y"
+a.x = 2
+a.y = 3
 
 
 def get_attribute_x(a: A) -> int:
