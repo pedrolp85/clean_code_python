@@ -16,3 +16,4 @@ def display_msg(msg: str) -> None:
 
 
 y: float = 1.0
+z: bool
