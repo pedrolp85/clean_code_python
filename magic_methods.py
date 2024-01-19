@@ -9,7 +9,6 @@
 # Se podría hacer override del __new__() y aunque no podemos reescribir la creacion del objeto,
 # podemos hacer una especie de decorador llamando al new de object con super().__new__()
 # lo cual nos permitiría añadir líneas previas y posteriormente a la creación de la instancia
-
 # In Python, a class is callable. When you call
 # the class to create a new object:
 # Python will call the __new__() and __init__() methods
@@ -18,8 +17,6 @@
 class Person:
     def __init__(self, name):
         self.name = name
-
-
 
 
 person = Person("John")
