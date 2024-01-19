@@ -35,4 +35,6 @@ def generic_action(items: Sequence[Item]) -> list[str]:
 a_sequence = (Item(CustomValue()), Item(CustomValue()), Item(CustomValue()))
 a_bad_sequence = None
 print(generic_action(a_sequence))
+
+print(_generic_action(a_bad_sequence))
 print(generic_action(a_bad_sequence))
